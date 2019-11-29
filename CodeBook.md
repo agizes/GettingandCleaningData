@@ -1,8 +1,8 @@
-# Code Book #
+# Code Book
 
 This code book describes the variables, source data data and transformations done to clean up the data for the Getting and Cleaning data 
 
-##Dataset Information##
+## Dataset Information
 
 Data correspond to experiments within a group of people who have performed six different activities:
 - Walking
@@ -17,12 +17,12 @@ These activities werea measured with a smartphone the participants wore during t
 The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for 
 generating the training data and 30% the test data. 
 
-##Source Data##
+## Source Data
 
 - [Data description]http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 - [Source of data](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
-###Files###
+### Files
 
 - `README.txt`: contains general information of the experiment
 - `features_info.txt`: contains information about the variables used
@@ -42,7 +42,7 @@ the Y and Z axis.
 - `xxx/Inertial Signals/body_gyro_x_train.txt`: The angular velocity vector measured by the gyroscope for each window sample. 
 These values are expressed in `radians-per-second`. 
 
-##Data Manipulation details##
+## Data Manipulation details
 
 The `run_analysis.R` script performs the following actions towards the final clean dataset:
 1. Download the dataset
@@ -53,21 +53,21 @@ The `run_analysis.R` script performs the following actions towards the final cle
 6. Appropriately label the data set with descriptive variable names
 7. From the data set in step 6, create a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-###1. Download the dataset###
+### 1. Download the dataset
 The first step is to validate if the file / directory exists. If it does not, it downloads the file, creates the directory and unzips the file
 
-###2.Build basic dataframes###
+### 2.Build basic dataframes
 This step builds the basic dataframes for features, activities, subject test, x test, y test, subject train, x train and y train
 
-###3.  Merge the training and the test sets to create one single data set###
+### 3.  Merge the training and the test sets to create one single data set
 * Merged_Data: X_test.txt and X_train txt merge. Datraframe with 10299 observations and 561 variables
 * Subjects: Subject_test and Subject_train merged. Dataframe with 10299 observations
 
-###4. Extract only the measurements on the mean and standard deviation for each measurement. ###
+### 4. Extract only the measurements on the mean and standard deviation for each measurement
 This piece of code generates selects only the mean and standard deviation from the merged data.
 The output is a dataframe with 10299 observations and 66 variables.
 
-###5. Use descriptive activity names to name the activities in the data set ###
+### 5. Use descriptive activity names to name the activities in the data set
 In this step we set the TidyData code names to the activities names, inserting into the the $code variable the activity codes from
 activity_lables.txt.Explecitely this corresponds to:
 - Walking
@@ -77,7 +77,7 @@ activity_lables.txt.Explecitely this corresponds to:
 - Standing
 - Laying
 
-###6. Appropriately labels the data set with descriptive variable names###
+### 6. Appropriately labels the data set with descriptive variable names
 The script renames the the dataset columns with descriptive names:
 - The column corresponding to activities is renamed to "activity"
 - "Mag" is transformed to "magnitude"
@@ -93,6 +93,6 @@ The script renames the the dataset columns with descriptive names:
 - "-std()" is transformed to "std"
 - "-freq()" is transformed to  "frequency"
 
-###7. Create the Tidy Dataset
+### 7. Create the Tidy Dataset
 The last step is to generate a second "aggregated" dataset with the average of each measurement grouped for each activity and subject.
 The result is saved in the "TidyDataAgg.txt" file.
