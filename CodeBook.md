@@ -24,14 +24,14 @@ generating the training data and 30% the test data.
 
 ### Files
 
-- `README.txt`: contains general information of the experiment
-- `features_info.txt`: contains information about the variables used
-- `features.txt`: contains the list of all features
-- `activity_labels.txt`: contains links the class labels with their activity name
-- `train/X_train.txt`: training set data
-- `train/y_train.txt`: training labels
-- `test/X_test.txt`: test set data
-- `test/y_test.txt`: test labels
+- README.txt: contains general information of the experiment
+- features_info.txt: contains information about the variables used
+- features.txt: contains the list of all features
+- activity_labels.txt: contains links the class labels with their activity name
+- train/X_train.txt: training set data
+- train/y_train.txt: training labels
+- test/X_test.txt: test set data
+- test/y_test.txt: test labels
 
 Files in the "train" and "test" subfolders contain the same type of information structure: (xxx corresponds to train or test)
 - `xxx/subject_train.txt`: Each row refers to each person who performed the activity for each window sample. 
