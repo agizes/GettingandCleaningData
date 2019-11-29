@@ -36,15 +36,13 @@ generating the training data and 30% the test data.
 Files in the "train" and "test" subfolders contain the same type of information structure: (xxx corresponds to train or test)
 - xxx/subject_train.txt: Each row refers to each person who performed the activity for each window sample. 
 - xxx/Inertial Signals/total_acc_x_train.txt: The acceleration signal from the smartphone accelerometer X axis in standard  gravity units "g". 
-Each row shows a `128` element vector. The same description applies for the `total_acc_x_train.txt` and for the `total_acc_z_train.txt` files for 
-the Y and Z axis.
 - xxx/Inertial Signals/body_acc_x_train.txt: The body acceleration signal obtained by subtracting the gravity from the total acceleration.
 - xxx/Inertial Signals/body_gyro_x_train.txt: The angular velocity vector measured by the gyroscope for each window sample. 
-These values are expressed in `radians-per-second`. 
+
 
 ## Data Manipulation details
 
-The `run_analysis.R` script performs the following actions towards the final clean dataset:
+The run_analysis.R script performs the following actions towards the final clean dataset:
 1. Download the dataset
 2. Build the basic dataframes
 3. Merge the training and the test sets to create one data set.
