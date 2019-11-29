@@ -35,15 +35,14 @@ X <- rbind(x_train, x_test)
 #y train and test merged
 Y <- rbind(y_train, y_test)
 #all subjects merged
-Subject <- rbind(subject_train, subject_test)
+Subjects <- rbind(subject_train, subject_test)
 #all trains, tests and subjects merged
-Merged_Data <- cbind(Subject, Y, X)
+Merged_Data <- cbind(Subjects, Y, X)
 
 #4Extract only the measurements on the mean and standard deviation for each measurement.
 TidyData <- Merged_Data %>% select(subject, code, contains("mean"), contains("std"))
 
 #5. Use descriptive activity names to name the activities in the data set
-#Set the TidyData code names to the activities names
 TidyData$code <- activities[TidyData$code, 2]
 
 #6. Appropriately label the data set with descriptive variable names.
@@ -62,7 +61,7 @@ names(TidyData)<-gsub("-std()", "std", names(TidyData), ignore.case = TRUE)
 names(TidyData)<-gsub("-freq()", "frequency", names(TidyData), ignore.case = TRUE)
 
 
-#7. From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject.
+#7. From the data set in step 6, create a second, independent tidy data set with the average of each variable for each activity and each subject.
 TidyDataAgg <- aggregate(. ~subject + activity, TidyData, mean)
 TidyDataAgg <- TidyDataAgg[order(TidyDataAgg$subject,TidyDataAgg$activity),]
 write.table(TidyDataAgg, file = "TidyDataAgg.txt", row.names = FALSE)
